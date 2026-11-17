@@ -22,7 +22,7 @@ This project demonstrates Identity and Access Management (IAM) on Microsoft Azur
 
 ```
 Azure Subscription
-└── Resource Group: rg-entra-iam-project
+└── Resource Group: rg-entraid-rbac-project
     ├── Entra ID Users
     │   ├── dev-user       → Developers group → Contributor (resource group)
     │   ├── ops-user       → Operations group → Reader (resource group)
@@ -58,7 +58,7 @@ All resources were first created manually through the Azure Portal to understand
 - Created a service principal for the application
 
 **Step 4: Create Service Principal with Contributor Role**
-- Created a dedicated service principal `terraform-sp` for Terraform automation
+- Created a dedicated service principal `terraform-test` for Terraform automation
 - Assigned `Contributor` role at subscription scope to allow resource management
 
 **Step 5: Assign RBAC Roles**
@@ -70,7 +70,7 @@ All resources were first created manually through the Azure Portal to understand
 - Enabled Multi-Factor Authentication (MFA) for all three users as a security hardening step
 
 ### Screenshots
-*(See `/screenshots` folder in this repository)*
+*(See `/console-screenshots` folder in this repository)*
 
 ---
 
@@ -111,7 +111,7 @@ Terraform state is stored remotely in Azure Blob Storage:
 
 ### Service Principal Permissions
 
-The `terraform-sp` service principal requires the following to run this configuration:
+The `terraform-test` service principal requires the following to run this configuration:
 
 | Permission | Type | Purpose |
 |---|---|---|
@@ -159,7 +159,7 @@ The `terraform-sp` service principal requires the following to run this configur
 
 | Resource | Type | Description |
 |---|---|---|
-| `rg-entra-iam-project` | Resource Group | Container for all project resources |
+| `rg-entraid-rbac-project` | Resource Group | Container for all project resources |
 | `dev-user` | Entra ID User | Developer persona |
 | `ops-user` | Entra ID User | Operations persona |
 | `readonly-user` | Entra ID User | Read-only persona |
